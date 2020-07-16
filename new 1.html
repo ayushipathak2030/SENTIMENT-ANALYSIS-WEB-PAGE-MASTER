@@ -1,0 +1,129 @@
+<html>
+<head>
+  <title>Sentiment App</title>
+	<link rel=stylesheet type=text/css href="static/css1.css">
+</head>
+<body>
+	<header id="header">
+    <div class="container">
+
+
+      <nav id="nav-menu-container">
+        <ul class="nav-menu">
+          <li class="menu-active"><a href="#hero">Home</a></li>
+          <li><a href="#about">About</a></li>
+		    <li><a href="#contact">Contact Us</a></li>
+		   </ul>
+      </nav>
+	    </div>
+	  </header>
+	    <!--==========================
+    Hero Section
+  ============================-->
+	  
+	   <section id="hero">
+    <div class="hero-container">
+      <h1>OPINION EXTRACTION</h1>
+      <label for="data">Choose a file:</label>
+      <p style="color:#fff">We only accept csv format numerical data</p>
+                      <form method=POST enctype=multipart/form-data action="{{ url_for('dataupload') }} class="form-group">
+                        <div class="form-group">
+                          <input type="file" name="csv_data">
+                        <br/>
+                        </div>
+                        
+                        <input type="submit"  onclick="myAnalyser()" class="btn btn-primary mb-2"> 
+                        <input type="reset"  value="Reset" class="btn btn-danger mb-2">
+                      </form>
+                      <form method="POST"> 
+                       <input type="text" placeholder="enter text" name="text"> 
+                       <br />
+                       <input type="submit">
+                      </form>>
+    </div>
+  </section>
+  <!-- #hero -->
+  <script>
+    function myAnalyser() {
+        document.querySelector('.main div').style.display = 'none';
+      //Hide the main division
+      document.querySelector('.main').classList.add('spinner-1');
+      // Server request
+      setTimeout(() => {
+      document.querySelector('.main').classList.remove('spinner-1');
+      //Remove the animation
+      document.querySelector('.main div').style.display = 'block';
+      //Show the main division
+      },5000);//Number of seconds to last
+    }
+    </script>
+  <main id="main">
+ 
+	
+    <!--==========================
+      About Us Section
+    ============================-->
+    <section id="about">
+      <div class="container">
+        <div class="row about-container">
+
+          <div class="col-lg-6 content order-lg-1 order-2">
+            <h2 class="title">Few Words About Our Website</h2>
+            <p>
+              It is an essence for market research and customer service approach, not only you can see what people
+              think of your own products or services, you can see what they think of your competitors too. 
+              This can be used by any user who wants to analyze movie reviews or product reviews or any opinions in 
+              positive or negative. Opinion Extraction is the process of computationally identifying and categorizing 
+              opinions expressed in a piece of text, especially in order to determine whether the writer’s attitude 
+              towards a particular topic, product, etc. is positive, negative, or neutral.
+            </p>
+			</div>
+
+          <div class="col-lg-6 background order-lg-2 order-1 wow fadeInRight"></div>
+        </div>
+
+      </div>
+    </section><!-- #about -->
+  <!--==========================
+      Contact Section
+    ============================-->
+    <section id="contact">
+      <div class="container wow fadeInUp">
+        <div class="section-header">
+          <h3 class="section-title">Contact</h3>
+          <p class="section-description">However, to explain to you how all this mistaken idea of ​​denouncing pleasure and pain</p>
+        </div>
+      </div>
+
+      <!-- Uncomment below if you want to use dynamic maps -->
+     
+
+      <div class="container wow fadeInUp mt-5">
+        <div class="row justify-content-center">
+
+          <div class="col-lg-3 col-md-4">
+
+            <div class="info">
+              <div>
+                <i class="fa fa-map-marker"></i>
+                <p>Banasthali Vidyapith<br>Niwai,Tonk,Rajasthan 304022</p>
+              </div>
+
+              <div>
+                <i class="fa fa-envelope"></i>
+                <a href = "mailto:shubhradutta4@gmail.com?subject = Feedback&body = Message">
+                  Send Feedback
+                  </a>
+                
+              </div>
+
+              <div>
+                <i class="fa fa-phone"></i>
+                <p>+0 2511567</p>
+              </div>
+            </div>
+    </section><!-- #contact -->
+
+  </main>
+</body>
+</html>
